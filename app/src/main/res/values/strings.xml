@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Talk2Us</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_time">first_time</string>
+    <string name="got_it">Got it</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="not_registered">not_registered</string>
+    <string name="phone_number">phone_number</string>
+    <string name="counsellor_id">counsellor_id</string>
+    <string name="client_id">client_id</string>
+    <string name="chat_stablished">chat_stablised</string>
+    <string name="status_confirmed">status_confirmed</string>
+</resources>
