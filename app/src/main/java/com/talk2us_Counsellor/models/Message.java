@@ -42,7 +42,7 @@ public class Message {
 
     public Message() {
         word = "Hello";
-        timeStamp = "right now";
+        timeStamp = "";
         sent = false;
         seen = false;
         sentFrom = "Counsellor";
