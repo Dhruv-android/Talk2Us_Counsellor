@@ -7,7 +7,7 @@ import com.talk2us_Counsellor.R
 import com.talk2us_Counsellor.utils.Utils
 
 class ChatActivity : AppCompatActivity() {
-
+    lateinit var messageId:String
     lateinit var viewModel: ChatViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,6 +15,7 @@ class ChatActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(ChatViewModel::class.java)
         val str = intent.getStringExtra("message_id")
         viewModel.message_id = str as String
-        supportFragmentManager.beginTransaction().add(R.id.container, ChatFragment()).commit()
+        messageId=str as String
+        supportFragmentManager.beginTransaction().add(R.id.container, ChatFragment.newInstance(messageId)).commit()
     }
 }

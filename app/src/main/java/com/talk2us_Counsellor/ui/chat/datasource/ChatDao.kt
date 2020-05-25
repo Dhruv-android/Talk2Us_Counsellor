@@ -12,8 +12,8 @@ interface ChatDao {
     @Query("DELETE FROM messages")
     fun deleteAll()
 
-    @Query("SELECT * FROM messages")
-    fun getAllMessages():LiveData<List<Message>>
+    @Query("SELECT * FROM messages WHERE messageId LIKE :str")
+    fun getAllMessages(str:String):LiveData<List<Message>>
 
     @Delete
     fun delete(message: Message)

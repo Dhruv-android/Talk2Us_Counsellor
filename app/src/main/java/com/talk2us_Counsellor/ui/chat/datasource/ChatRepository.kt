@@ -14,7 +14,6 @@ import com.talk2us_Counsellor.utils.Utils
 
 class ChatRepository(private val chatDao: ChatDao, private val viewModel: ChatViewModel) {
 
-    val allWords: LiveData<List<Message>> = chatDao.getAllMessages()
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     fun sendMessage(message: Message) {
@@ -27,6 +26,11 @@ class ChatRepository(private val chatDao: ChatDao, private val viewModel: ChatVi
                 viewModel.update(message)
             }
         }
+
+    @WorkerThread
+    fun getAllMessages(str:String):LiveData<List<Message>>{
+        return chatDao.getAllMessages(str)
+    }
 
     @WorkerThread
     fun update(message: Message) {

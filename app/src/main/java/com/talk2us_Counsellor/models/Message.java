@@ -13,6 +13,7 @@ public class Message {
     public Boolean sent;
     public Boolean seen;
     public String sentFrom;
+    public String messageId;
 
     public Message(String word, String timeStamp, Boolean sent, Boolean seen, String sentFrom, String messageId) {
         this.word = word;
@@ -38,8 +39,6 @@ public class Message {
     public void setMessageId(String messageId) {
         this.messageId = messageId;
     }
-
-    public String messageId;
 
     public Message() {
         word = "Hello";
