@@ -33,7 +33,7 @@ class Utils {
         }
 
         fun getCounsellorId():String{
-            return PrefManager.getString(R.string.counsellor_id,"not_defined") as String
+            return PrefManager.getString(Constants.COUNSELLOR_ID,Constants.NOT_DEFINED) as String
         }
     }
 }

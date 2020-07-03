@@ -12,12 +12,16 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.iid.FirebaseInstanceId
 import com.talk2us_Counsellor.R
 import com.talk2us_Counsellor.models.Message
+import com.talk2us_Counsellor.utils.Constants
+import com.talk2us_Counsellor.utils.PrefManager
 import com.talk2us_Counsellor.utils.Utils
 import java.util.concurrent.atomic.AtomicInteger
 import kotlin.math.absoluteValue
@@ -61,7 +65,7 @@ class ChatFragment : Fragment() {
                     Utils.getTime(),
                     false,
                     false,
-                    "Counsellor",
+                    Constants.COUNSELLOR,
                     viewModel.message_id
                 )
             )

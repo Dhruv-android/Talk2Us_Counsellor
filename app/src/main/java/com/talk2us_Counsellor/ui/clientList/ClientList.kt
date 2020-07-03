@@ -11,6 +11,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.talk2us_Counsellor.R
 import com.talk2us_Counsellor.ui.chat.ChatActivity
+import com.talk2us_Counsellor.utils.Constants
 import com.talk2us_Counsellor.utils.PrefManager
 
 class ClientList : AppCompatActivity(),
@@ -26,7 +27,7 @@ class ClientList : AppCompatActivity(),
         adapter.setOnClick(this)
 
         FirebaseDatabase.getInstance().getReference("counsellorChats").child(
-            PrefManager.getString(R.string.counsellor_id, "Not available") as String
+            PrefManager.getString(Constants.COUNSELLOR_ID, Constants.NOT_DEFINED) as String
         ).addValueEventListener(object :ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
             }

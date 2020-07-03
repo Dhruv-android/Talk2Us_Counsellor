@@ -18,12 +18,27 @@ object PrefManager {
         return preference.getBoolean(context.getString(preferenceKey), defaultValue)
     }
 
-    fun putString(preferenceKey: Int, preferenceValue: String) {
-        preference.edit().putString(context.getString(preferenceKey), preferenceValue).apply()
+    fun putString(str: String, preferenceValue: String) {
+        preference.edit().putString(str, preferenceValue).apply()
     }
 
-    fun getString(preferenceKey: Int, defaultValue: String): String? {
-        return preference.getString(context.getString(preferenceKey), defaultValue)
+    fun getString(str: String, defaultValue: String): String? {
+        return preference.getString(str, defaultValue)
     }
 
+    fun getClientMessageToken(): String {
+        return getString(Constants.CLIENT_MESSAGE_TOKEN, Constants.NOT_DEFINED) as String
+    }
+
+    fun putClientMessageToken(str: String) {
+        putString(Constants.CLIENT_MESSAGE_TOKEN, str)
+    }
+
+    fun getCounsellorMessageToken(): String {
+        return getString(Constants.COUNSELLOR_MESSAGE_TOKEN, Constants.NOT_DEFINED) as String
+    }
+
+    fun putCounsellorMessageToken(str: String) {
+        putString(Constants.COUNSELLOR_MESSAGE_TOKEN, str)
+    }
 }

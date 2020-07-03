@@ -14,6 +14,7 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 import com.talk2us_Counsellor.R;
 import com.talk2us_Counsellor.models.Message;
+import com.talk2us_Counsellor.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +46,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatHolder> {
 
     @Override
     public int getItemViewType(int position) {
-        if (mMessage.get(position).getSentFrom().equals("Counsellor")){
+        if (mMessage.get(position).getSentFrom().equals(Constants.COUNSELLOR)){
             return SEND;
         }else {
             return RECEIVED;

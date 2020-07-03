@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.talk2us_Counsellor.utils.Constants;
+import com.talk2us_Counsellor.utils.PrefManager;
+
 @Entity(tableName = "messages")
 public class Message {
     @PrimaryKey
@@ -14,6 +17,7 @@ public class Message {
     public Boolean seen;
     public String sentFrom;
     public String messageId;
+    public String messageToken;
 
     public Message(String word, String timeStamp, Boolean sent, Boolean seen, String sentFrom, String messageId) {
         this.word = word;
@@ -22,6 +26,8 @@ public class Message {
         this.seen = seen;
         this.sentFrom = sentFrom;
         this.messageId = messageId;
+        messageToken= PrefManager.INSTANCE.getClientMessageToken();
+
     }
 
     public String getSentFrom() {
@@ -45,8 +51,9 @@ public class Message {
         timeStamp = "";
         sent = false;
         seen = false;
-        sentFrom = "Counsellor";
+        sentFrom = Constants.COUNSELLOR;
         messageId = "not_defined";
+        messageToken=PrefManager.INSTANCE.getClientMessageToken();
     }
 
     public String getWord() {

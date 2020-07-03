@@ -1,11 +1,13 @@
 package com.talk2us_Counsellor.models;
 
+import com.talk2us_Counsellor.utils.PrefManager;
+
 public class Counsellor {
     public Boolean available;
     public int clients;
     public String id;
     public Boolean status_confirmed;
-
+    public String messageToken;
 
     public Boolean getStatus_confirmed() {
         return status_confirmed;
@@ -19,12 +21,14 @@ public class Counsellor {
         clients=0;
         id="Not available";
         status_confirmed=false;
+        messageToken= PrefManager.INSTANCE.getCounsellorMessageToken();
     }
     public Counsellor(Boolean available, int clients, String id,Boolean status_confirmed) {
         this.available = available;
         this.clients = clients;
         this.id = id;
         this.status_confirmed=status_confirmed;
+        messageToken=PrefManager.INSTANCE.getCounsellorMessageToken();
     }
 
     public Boolean getAvailable() {

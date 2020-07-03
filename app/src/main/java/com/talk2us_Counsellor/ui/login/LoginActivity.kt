@@ -12,6 +12,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.talk2us_Counsellor.R
 import com.talk2us_Counsellor.models.Counsellor
 import com.talk2us_Counsellor.ui.status.StatusActivity
+import com.talk2us_Counsellor.utils.Constants
 import com.talk2us_Counsellor.utils.PrefManager
 import com.talk2us_Counsellor.utils.Utils
 
@@ -55,9 +56,9 @@ class LoginActivity : AppCompatActivity() {
             if (it.isSuccessful) {
                 val counsellor=Counsellor()
                 counsellor.id=mAuth.currentUser?.uid as String
-                FirebaseDatabase.getInstance().getReference("Counsellor").child(counsellor.id).setValue(counsellor)
-                PrefManager.putString(R.string.phone_number, loginViewModel.phone)
-                PrefManager.putString(R.string.counsellor_id,mAuth.currentUser?.uid as String)
+                FirebaseDatabase.getInstance().getReference(Constants.COUNSELLOR).child(counsellor.id).setValue(counsellor)
+                PrefManager.putString(Constants.PHONE_NUMBER, loginViewModel.phone)
+                PrefManager.putString(Constants.COUNSELLOR_ID,counsellor.id as String)
                 startActivity(Intent(applicationContext, LoginActivity::class.java))
                 finish()
             } else {
