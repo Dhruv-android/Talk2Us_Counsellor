@@ -11,6 +11,7 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.database.FirebaseDatabase
 import com.talk2us_Counsellor.R
 import com.talk2us_Counsellor.models.Counsellor
+import com.talk2us_Counsellor.ui.clientList.ClientList
 import com.talk2us_Counsellor.ui.status.StatusActivity
 import com.talk2us_Counsellor.utils.Constants
 import com.talk2us_Counsellor.utils.PrefManager
@@ -27,10 +28,10 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         mAuth = FirebaseAuth.getInstance()
         if (mAuth.currentUser != null) {
-            startActivity(Intent(applicationContext, StatusActivity::class.java))
+            startActivity(Intent(applicationContext, ClientList::class.java))
             finish()
         }
-        if (PrefManager.getBoolean(R.string.first_time, true)) {
+        if (PrefManager.getBoolean(Constants.FIRST_TIME, true)) {
             startActivity(Intent(applicationContext, WelcomeActivity::class.java))
             finish()
         }

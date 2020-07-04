@@ -12,4 +12,5 @@ object Constants {
     const val NOT_REGISTERED="not_registered"
     const val CLIENT_MESSAGE_TOKEN="client_message_token"
     const val COUNSELLOR_MESSAGE_TOKEN="counsellor_message_token"
+    const val STATUS="status_confirmed"
 }

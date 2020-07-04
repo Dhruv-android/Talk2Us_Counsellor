@@ -10,12 +10,12 @@ object PrefManager {
     private val context: Context
         get() = MainApplication.instance.applicationContext
 
-    fun putBoolean(preferenceKey: Int, preferenceValue: Boolean) {
-        preference.edit().putBoolean(context.getString(preferenceKey), preferenceValue).apply()
+    fun putBoolean(preferenceKey: String, preferenceValue: Boolean) {
+        preference.edit().putBoolean(preferenceKey, preferenceValue).apply()
     }
 
-    fun getBoolean(preferenceKey: Int, defaultValue: Boolean): Boolean {
-        return preference.getBoolean(context.getString(preferenceKey), defaultValue)
+    fun getBoolean(preferenceKey: String, defaultValue: Boolean): Boolean {
+        return preference.getBoolean(preferenceKey, defaultValue)
     }
 
     fun putString(str: String, preferenceValue: String) {
@@ -30,6 +30,12 @@ object PrefManager {
         return getString(Constants.CLIENT_MESSAGE_TOKEN, Constants.NOT_DEFINED) as String
     }
 
+    fun getCounsellorId(): String {
+        return PrefManager.getString(
+            Constants.COUNSELLOR_ID,
+            Constants.NOT_DEFINED
+        ) as String
+    }
     fun putClientMessageToken(str: String) {
         putString(Constants.CLIENT_MESSAGE_TOKEN, str)
     }
